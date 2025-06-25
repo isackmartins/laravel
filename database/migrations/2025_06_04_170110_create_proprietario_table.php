@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('telefone', 255);
             $table->string('email', 255);
 
-            $table->unsignedBigInteger('anuncio_id');
-            $table->foreing('anuncio_id')->references('id')->on('anuncio')->onDelete('cascade');
+
+        $table->unsignedBigInteger('anuncio_id');
+
+        $table->foreign('anuncio_id')->references('id')->on('anuncio')->onDelete('cascade');
         });
     }
 

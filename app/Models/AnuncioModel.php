@@ -10,12 +10,14 @@ class AnuncioModel extends Model
     use HasFactory;
     protected $table = 'anuncio';
     protected $fillable = ['titulo', 'descricao', 'preco', 'data_publicacao'];
-    
-    public function proprietario(){
+
+          public function proprietario()
+    {
         return $this->belongsTo(Proprietario::class);
     }
 
-    public function veiculo(){
+    public function veiculo()
+    {
         return $this->belongsTo(Veiculo::class);
     }
 
