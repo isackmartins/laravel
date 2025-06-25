@@ -13,17 +13,14 @@ return new class extends Migration
     {
         Schema::create('veiculo', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->unsignedBigInteger('anuncio_id'); // campo de chave estrangeira
+            $table->timestamps();          
             $table->string('marca', 255);
             $table->string('modelo', 255);
             $table->string('ano', 255);
             $table->string('placa', 255);
             $table->string('cor', 255);
 
-                    // constraint
-        $table->foreign('anuncio_id')->references('id')->on('anuncio');
-        $table->unique('anuncio_id'); // garante relacionamento um para um
+                    
         });
     }
 

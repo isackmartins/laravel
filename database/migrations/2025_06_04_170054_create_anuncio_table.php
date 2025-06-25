@@ -13,22 +13,18 @@ return new class extends Migration
     {
         Schema::create('anuncio', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('proprietario_id'); // campo de chave estrangeira
-            $table->unsignedBigInteger('veiculo_id'); // campo de chave estrangeira
             $table->string('titulo');
             $table->string('descricao');
             $table->decimal('preco', 8, 2);
             $table->timestamp('data_publicacao')->nullable();
+            
+            $table->unsignedBigInteger('veiculo_id');
+
+            $table->foreing('veiculo_id')->references('id')->on('veiculo')->onDelete('cascade');
+
             $table->timestamps();
-
-                        // constraint
-        $table->foreign('proprietatio_id')->references('id')->on('proprietario');
-        $table->foreign('veiculo_id')->references('id')->on('veiculo');
-        $table->unique('veiculo_id'); // garante relacionamento um para um
         });
-        
     }
-
     /**
      * Reverse the migrations.
      */

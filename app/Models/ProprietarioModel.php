@@ -11,4 +11,8 @@ class ProprietarioModel extends Model
     protected $table = 'proprietario';
     protected $fillable = ['nome', 'cpf', 'telefone', 'email'];
 
+    public function anuncios(){
+        return $this->hasMany(Anuncio::class);
+    }
+
 }

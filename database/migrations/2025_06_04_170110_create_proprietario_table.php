@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('proprietario', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('anuncio_id'); // campo de chave estrangeira
             $table->string('nome', 255);
             $table->string('cpf', 11);
             $table->string('telefone', 255);
             $table->string('email', 255);
 
-            $table->foreign('anuncio_id')->references('id')->on('anuncio');
+            $table->unsignedBigInteger('anuncio_id');
+            $table->foreing('anuncio_id')->references('id')->on('anuncio')->onDelete('cascade');
         });
     }
 
